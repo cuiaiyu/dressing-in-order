@@ -1,14 +1,12 @@
-# Dressing in Order (DiOr)
+# Dressing in Order (DiOr) - To Appear in ICCV 2021
 
 [\[Project Page\]](https://cuiaiyu.github.io/dressing-in-order/)
 [\[Paper\]](https://arxiv.org/abs/2104.07021)
 
 Official Implementation of "Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing."
 
-## News
-- [06/10/21] We will give a talk for this work at [Computer Vision for Fashion, Art and Design Workshop](https://sites.google.com/zalando.de/cvfad2021/home) (CVPR 2021) on June 25th, 2021.
-
-
+## Code
+Code will be released in this repo, once it is ready. 
 
 ## Applications Supported by DiOr
 (All below source images are from [DeepFashion Dataset](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html).)
@@ -24,7 +22,3 @@ Please check our paper for details.
 
 ### Garment Transparency
 Please check our paper for details.
-
-
-## Code
-Code will be released in this repo, once it is ready. :)
