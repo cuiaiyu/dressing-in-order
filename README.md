@@ -15,11 +15,11 @@ by
 - [2021/06] The best paper at [Computer Vision for Fashion, Art and Design](https://sites.google.com/zalando.de/cvfad2021/home) Workshop CVPR 2021.
 
 __Supported Try-on Applications__
-![](images/short_try_on_editing.png)
+![](Images/short_try_on_editing.png)
 
 __Supported Editing Applications__
 
-![](images/short_editing.png)
+![](Images/short_editing.png)
 
 __More results__
 
