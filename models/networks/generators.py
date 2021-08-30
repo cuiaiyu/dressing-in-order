@@ -90,9 +90,9 @@ class DIORGenerator(BaseGenerator):
             
             attn = exists * curr_mask * attn # * fattn
             
-            for k in range(self.n_style_blocks // 2):
+            for k in range(self.n_style_blocks // 2, self.n_style_blocks):
                 base0 = out
-                out = self.style_blocks[k+2](out, style_fabrics[i],cut=True) 
+                out = self.style_blocks[k](out, style_fabrics[i],cut=True) 
                 out = out * attn + base0 * (1 - attn)
                 
             
@@ -168,9 +168,9 @@ class DIORv1Generator(BaseGenerator):
             
             attn = exists * curr_mask * attn # * fattn
             
-            for k in range(self.n_style_blocks // 2):
+            for k in range(self.n_style_blocks // 2, self.n_style_blocks):
                 base0 = out
-                out = self.style_blocks[k+2](out, style_fabrics[i],cut=True) 
+                out = self.style_blocks[k](out, style_fabrics[i],cut=True) 
                 out = out * attn + base0 * (1 - attn)
                 
             
