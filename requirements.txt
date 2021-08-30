@@ -44,7 +44,7 @@ ptyprocess==0.7.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
-Pygments==2.7.3
+Pygments==2.7.4
 pyparsing==2.4.7
 python-dateutil==2.8.1
 pytz==2020.5
