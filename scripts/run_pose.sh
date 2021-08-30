@@ -10,4 +10,4 @@ python train.py --dataroot $DATAROOT \
 --loss_coe_flow_cor 2 \
 --n_cpus 8 --gpu_ids 0 \
 --continue_train \
---model flow
+--model flow --no_trial_test
