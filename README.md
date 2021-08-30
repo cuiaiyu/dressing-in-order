@@ -1,24 +1,138 @@
-# Dressing in Order (DiOr) - To Appear in ICCV 2021
+# Dressing in Order 
+[:womans_clothes: \[Paper\]](https://cuiaiyu.github.io/dressing-in-order/Cui_Dressing_in_Order.pdf)
+[:jeans: \[Webpage\]](https://cuiaiyu.github.io/dressing-in-order)
+[:dress: \[Running this code\]](#get-started)
 
-[\[Project Page\]](https://cuiaiyu.github.io/dressing-in-order/)
-[\[Paper\]](https://arxiv.org/abs/2104.07021)
+The official implementation of __"Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing" (ICCV 2021).__ 
+by
+[Aiyu Cui](https://cuiaiyu.github.io),
+[Daniel McKee](http://danielbmckee.com) and
+[Svetlana Lazebnik](https://slazebni.cs.illinois.edu).
 
-Official Implementation of "Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing."
+- [2021/08] Please check our [latest version of paper](https://cuiaiyu.github.io/dressing-in-order/Cui_Dressing_in_Order.pdf) for the updated and clarified implementation details.      
+  - *__Clarification:__ the facial component was not added to the skin encoding as stated in the [our CVPR 2021 workshop paper](https://openaccess.thecvf.com/content/CVPR2021W/CVFAD/papers/Cui_Dressing_in_Order_Recurrent_Person_Image_Generation_for_Pose_Transfer_CVPRW_2021_paper.pdf) due to a minor typo. However, this doesn't affect our conclusions nor the comparison with the prior work, because it is an independent skin encoding design.*
+- [2021/07] To appear in ICCV 2021.
+- [2021/06] The best paper at [Computer Vision for Fashion, Art and Design](https://sites.google.com/zalando.de/cvfad2021/home) Workshop CVPR 2021.
 
-## Code
-Code will be released in this repo, once it is ready. 
+__Supported Try-on Applications__
+![](images/short_try_on_editing.png)
 
-## Applications Supported by DiOr
-(All below source images are from [DeepFashion Dataset](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html).)
-### Virtual Try-On
-DiOr supports a couple of noval virtual try-on applications: __switching dressing order__ and __layering__. 
-![alt text](Images/short_try_on_editing.png "Title")
+__Supported Editing Applications__
 
-### Outfit Editing
-DiOr also supports a number of outfit editing tasks: __content removal__, __print insertion__, __texture transfer__, __reshaping__, and __transparency change__ (check paper for details of transparency change).
-![alt text](Images/short_editing.png "Title")
-### Pose Transfer
-Please check our paper for details.
+![](images/short_editing.png)
 
-### Garment Transparency
-Please check our paper for details.
+__More results__
+
+Play with [demo.ipynb](demo.ipynb)!
+
+----
+
+## Get Started
+Please follow the [installation instruction in GFLA](https://github.com/RenYurui/Global-Flow-Local-Attention) to install the environment. 
+
+Then run
+```
+pip install -r requirements.txt
+```
+
+__If one wants to run inference only:__
+You can use later version of PyTorch and you don't need to worry about how to install GFLA's cuda functions. Please specify ```--frozen_flownet```.
+
+
+## Dataset
+We run experiments on __Deepfashion Dataset__. To set up the dataset:
+1. Download and unzip ```img_highres.zip``` from the [deepfashion inshop dataset](https://drive.google.com/drive/folders/0B7EVK8r0v71pYkd5TzBiclMzR00?resourcekey=0-fsjVShvqXP2517KnwaZ0zw) at ```$DATA_ROOT```
+2. Download the train/val split and keypoints from 
+[GFLA source](https://drive.google.com/drive/folders/1BX3Bxh8KG01yKWViRY0WTyDWbJHju-SL)
+or [PATN source](https://drive.google.com/drive/folders/1eIwVFMRu9sU5UN-dbyTSEDEZJnWyYfxj),
+and put the ```.csv``` and ```.lst``` files at ```$DATA_ROOT```
+3. Run ```python tools/generate_fashion_dataset.py``` to split the data. (Please specify the $DATA_ROOT accordingly.)
+4. Get human parsing. You can obtain the parsing by either:
+    - Run off-the-shelf human parser [SCHP](https://github.com/PeikeLi/Self-Correction-Human-Parsing) (with LIP labels) on ```$DATA_ROOT/train``` and ```$DATA_ROOT/test```. Name the output parses folder as ```$DATA_ROOT/trainM_lip``` and ```$DATA_ROOT/testM_lip``` respectively.
+    - Download the preprocessed parsing from [here](https://drive.google.com/drive/folders/11wWszW1kskAyMIGJHBBZzHNKN3os6pu_?usp=sharing) and put it under ```$DATA_ROOT```.
+5. Download [standard_test_anns.txt](https://drive.google.com/drive/folders/11wWszW1kskAyMIGJHBBZzHNKN3os6pu_?usp=sharing) for fast visualization.
+
+After the processing, you should have the dataset folder formatted like:
+```
++ $DATA_ROOT
+|   + train (all training images)
+|   |   - xxx.jpg
+|   |     ...
+|   + trainM_lip (human parse of all training images)
+|   |   - xxx.png
+|   |     ...
+|   + test (all test images)
+|   |   - xxx.jpg
+|   |     ...
+|   + testM_lip (human parse of all test images)
+|   |   - xxx.png
+|   |     ...
+|   - fashion-pairs-train.csv (paired poses for training)
+|   - fashion-pairs-test.csv (paired poses for test)
+|   - fashion-annotation-train.csv (keypoints for training images)
+|   - fashion-annotation-test.csv  (keypoints for test images)
+|   - train.lst
+|   - test.lst
+|   - standard_test_anns.txt
+```
+
+---
+
+## Run Demo
+Please download the pretrained weights from [here](https://drive.google.com/drive/folders/1-7DxUvcrC3cvQV67Z2QhRdi-9PMDC8w9?usp=sharing) and unzip at ```checkpoints/```. 
+
+After downloading the pretrained model and setting the data, you can try out our applications in notebook [demo.ipynb](demo.ipynb).
+
+*(The checkpoints above are reproduced, so there could be slightly difference in quantitative evaluation from the reported results. To get the original results, please check our released generated images [here](https://drive.google.com/drive/folders/1GOQVMhBKvANKutLDbzPbE-Zrb6ai9Eo8?usp=sharing).)*
+
+---
+## Training
+
+__Warmup the Global Flow Field Estimator__
+
+Note, if you don't want to warmup the Global Flow Field Estimator, you can extract its weights from GFLA by downloading the pretrained weights GFLA from [here](https://github.com/RenYurui/Global-Flow-Local-Attention).
+
+Otherwise, run
+
+```
+sh scripts/run_pose.sh
+```
+
+__Training__
+
+After warming up the flownet, train the pipeline by
+```
+sh scripts/run_train.sh
+```
+Run ```tensorboard --logdir checkpoints/$EXP_NAME/train``` to check tensorboard.
+*Resetting discriminators may help training when it stucks at local minimals.*
+
+## Evaluations
+
+To download our generated images (256x176 reported in paper): [here](https://drive.google.com/drive/folders/1GOQVMhBKvANKutLDbzPbE-Zrb6ai9Eo8?usp=sharing).
+
+__SSIM, FID and LPIPS__
+
+To run evaluation (SSIM, FID and LPIPS) on pose transfer task: 
+```
+sh scripts/run_eval.sh
+```
+
+---
+## Cite us!
+If you find this work is helpful, please consider to cite us as
+```
+@article{cui2021dressing,
+  title={Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing},
+  author={Cui, Aiyu and McKee, Daniel and Lazebnik, Svetlana},
+  journal={arXiv preprint arXiv:2104.07021},
+  year={2021}
+}
+```
+## Acknowledgements
+This repository is built up on [GFLA](https://github.com/RenYurui/Global-Flow-Local-Attention),
+[pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix), 
+[PATN](https://github.com/tengteng95/Pose-Transfer) and 
+[MUNIT](https://github.com/NVlabs/MUNIT). Please be aware of their licenses when using the code. 
+
+Thanks a lot for the great work to the pioneer researchers!
