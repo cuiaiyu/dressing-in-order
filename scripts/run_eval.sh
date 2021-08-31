@@ -20,11 +20,8 @@ python generate_all.py --model dior --dataroot $DATAROOT \
 python tools/compute_ssim.py --output_dir $OUTPUT_DIR'_'$LOAD_EP 
 
 # fid and lpips
-export ROOT=/shared/rsaas/aiyucui2/inshop
-export REAL_DIR=$ROOT/fashion_yifang/train_176_original_name
-export GT_DIR='' # $ROOT/fashion_yifang/test
-#export REAL_DIR=$ROOT/fashion_yifang/yurui/train_256
-#export GT_DIR=$ROOT/fashion_yifang/yurui/test_256
+export REAL_DIR=$DATA_DIR/ttrain
+export GT_DIR=$DATA_DIR/test
 export RESULT_DIR=$OUTPUT_DIR'_'$LOAD_EP 
 
 python3 -m  tools.metrics \
