@@ -1,9 +1,8 @@
 export OUTPUT_DIR=checkpoints/DIOR_32
 export NAME=DIOR_32
 export LOAD_EP=latest
-export NET_G=adseq2
+export NET_G=dior
 export NET_E=adgan
-export N_RES_G=0
 export NGF=32
 export ROOT=...
 export DATAROOT=...
