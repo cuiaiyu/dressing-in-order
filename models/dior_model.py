@@ -24,7 +24,7 @@ class DIORModel(DIORBaseModel):
             
     def modify_commandline_options(parser, is_train):
         DIORBaseModel.modify_commandline_options(parser, is_train)
-        parser.add_argument('--flownet_path', type=str, default="pretrained_models/flownet.pt", help='')
+        parser.add_argument('--flownet_path', type=str, default="", help='')
         parser.add_argument('--loss_coe_seg', type=float, default=0.1, help='coefficient of cls loss')
         parser.add_argument('--loss_coe_flow_reg', type=float, default=0.001, help='coefficient of cls loss')
         parser.add_argument('--loss_coe_flow_cor', type=float, default=2, help='coefficient of cls loss')

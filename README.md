@@ -41,7 +41,7 @@ You can use later version of PyTorch and you don't need to worry about how to in
 
 ## Dataset
 We run experiments on __Deepfashion Dataset__. To set up the dataset:
-1. Download and unzip ```img_highres.zip``` from the [deepfashion inshop dataset](https://drive.google.com/drive/folders/0B7EVK8r0v71pYkd5TzBiclMzR00?resourcekey=0-fsjVShvqXP2517KnwaZ0zw) at ```$DATA_ROOT```
+1. Download and unzip ```img_highres.zip``` from the [deepfashion inshop dataset](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion/InShopRetrieval.html) at ```$DATA_ROOT```
 2. Download the train/val split and keypoints from 
 [GFLA source](https://drive.google.com/drive/folders/1BX3Bxh8KG01yKWViRY0WTyDWbJHju-SL)
 or [PATN source](https://drive.google.com/drive/folders/1eIwVFMRu9sU5UN-dbyTSEDEZJnWyYfxj),
