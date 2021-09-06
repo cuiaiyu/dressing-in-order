@@ -42,10 +42,11 @@ You can use later version of PyTorch and you don't need to worry about how to in
 ## Dataset
 We run experiments on __Deepfashion Dataset__. To set up the dataset:
 1. Download and unzip ```img_highres.zip``` from the [deepfashion inshop dataset](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion/InShopRetrieval.html) at ```$DATA_ROOT```
-2. Download the train/val split and keypoints from 
+2. Download the train/val split and pre-processed keypoints annotations from 
 [GFLA source](https://drive.google.com/drive/folders/1BX3Bxh8KG01yKWViRY0WTyDWbJHju-SL)
 or [PATN source](https://drive.google.com/drive/folders/1eIwVFMRu9sU5UN-dbyTSEDEZJnWyYfxj),
-and put the ```.csv``` and ```.lst``` files at ```$DATA_ROOT```
+and put the ```.csv``` and ```.lst``` files at ```$DATA_ROOT```.
+    - If one wants to extract the keypoints from scratch, please run [OpenPose](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation) as the pose estimator. Please follow the instruction from [PATN](https://github.com/tengteng95/Pose-Transfer) for how to generate the keypoints in desired format.
 3. Run ```python tools/generate_fashion_dataset.py``` to split the data. (Please specify the $DATA_ROOT accordingly.)
 4. Get human parsing. You can obtain the parsing by either:
     - Run off-the-shelf human parser [SCHP](https://github.com/PeikeLi/Self-Correction-Human-Parsing) (with LIP labels) on ```$DATA_ROOT/train``` and ```$DATA_ROOT/test```. Name the output parses folder as ```$DATA_ROOT/trainM_lip``` and ```$DATA_ROOT/testM_lip``` respectively.

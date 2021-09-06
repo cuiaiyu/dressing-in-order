@@ -119,9 +119,9 @@ class DFVisualDataset(DFPairDataset):
         # load standard pose
         self._load_standard_pose()
         #load standard patches
-        patch_root = "/".join(dataroot.split("/")[:-1])
-        self.standard_patches = [self._load_img(os.path.join(patch_root, "dtd/images", fn)).unsqueeze(0) for fn in TEST_PATCHES]
-        self.standard_patches = torch.cat(self.standard_patches)
+        #patch_root = "/".join(dataroot.split("/")[:-1])
+        #self.standard_patches = [self._load_img(os.path.join(patch_root, "dtd/images", fn)).unsqueeze(0) for fn in TEST_PATCHES]
+        #self.standard_patches = torch.cat(self.standard_patches)
         self.selected_keys = [ "gfla", "jacket", "lace", "pattern", "plaid", "plain", "print", "strip", "flower"]
         self.image_dir = dataroot +  "/test"
         self.mask_dir = dataroot +  "/testM_lip"
