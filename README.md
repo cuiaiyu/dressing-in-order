@@ -1,20 +1,23 @@
-# Dressing in Order 
+# Dressing in Order (DiOr)
 [:womans_clothes: \[Paper\]](https://cuiaiyu.github.io/dressing-in-order/Cui_Dressing_in_Order.pdf)
 [:jeans: \[Webpage\]](https://cuiaiyu.github.io/dressing-in-order)
 [:dress: \[Running this code\]](#get-started)
 
-The official implementation of __"Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing" (ICCV 2021).__ 
+The official implementation of __"Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing".__ 
 by
 [Aiyu Cui](https://cuiaiyu.github.io),
 [Daniel McKee](http://danielbmckee.com) and
 [Svetlana Lazebnik](https://slazebni.cs.illinois.edu).
+ (ICCV 2021)
 
+:bell: __Updates__
 - [2021/08] Please check our [latest version of paper](https://cuiaiyu.github.io/dressing-in-order/Cui_Dressing_in_Order.pdf) for the updated and clarified implementation details.      
   - *__Clarification:__ the facial component was not added to the skin encoding as stated in the [our CVPR 2021 workshop paper](https://openaccess.thecvf.com/content/CVPR2021W/CVFAD/papers/Cui_Dressing_in_Order_Recurrent_Person_Image_Generation_for_Pose_Transfer_CVPRW_2021_paper.pdf) due to a minor typo. However, this doesn't affect our conclusions nor the comparison with the prior work, because it is an independent skin encoding design.*
-- [2021/07] To appear in ICCV 2021.
+- [2021/07] To appear in [__ICCV 2021__](http://iccv2021.thecvf.com).
 - [2021/06] The best paper at [Computer Vision for Fashion, Art and Design](https://sites.google.com/zalando.de/cvfad2021/home) Workshop CVPR 2021.
 
 __Supported Try-on Applications__
+
 ![](Images/short_try_on_editing.png)
 
 __Supported Editing Applications__
@@ -123,7 +126,7 @@ sh scripts/run_eval.sh
 
 ---
 ## Cite us!
-If you find this work is helpful, please consider to cite us as
+If you find this work is helpful, please consider to star :star2: this repo and cite us as
 ```
 @article{cui2021dressing,
   title={Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing},

@@ -124,8 +124,8 @@ class DIORModel(DIORBaseModel):
                 self.fake_B = self.netG.module.to_rgb(z)
                 return 
             else:
-                psegs = self.encode_attr(self.from_img, self.from_parse, self.from_kpt, self.to_kpt, PID)
-                gsegs = self.encode_attr(self.from_img, self.from_parse, self.from_kpt, self.to_kpt, GID)
+                psegs = self.encode_attr(img, self.to_parse, self.to_kpt, self.to_kpt, PID)
+                gsegs = self.encode_attr(img, self.to_parse, self.to_kpt, self.to_kpt, GID)
                 self.attn = [b for a,b in gsegs] + [b for a,b in psegs]
                 self.fake_B = self.netG(self.to_kpt, psegs, gsegs)
                 
