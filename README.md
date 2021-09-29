@@ -1,9 +1,10 @@
 # Dressing in Order (DiOr)
-[:womans_clothes: \[Paper\]](https://cuiaiyu.github.io/dressing-in-order/Cui_Dressing_in_Order.pdf)
-[:jeans: \[Webpage\]](https://cuiaiyu.github.io/dressing-in-order)
-[:dress: \[Running this code\]](#get-started)
+[:womans_clothes: __Paper__](https://cuiaiyu.github.io/dressing-in-order/Cui_Dressing_in_Order.pdf) |
+[:jeans: __Project Page__](https://cuiaiyu.github.io/dressing-in-order) |
+[🎽 __Video Talk__](https://youtu.be/z0UgPSTEdVo) |
+[:dress: __Running This Code__](#get-started)
 
-The official implementation of __"Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing".__ 
+The official implementation of __"Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing,"__ 
 by
 [Aiyu Cui](https://cuiaiyu.github.io),
 [Daniel McKee](http://danielbmckee.com) and
