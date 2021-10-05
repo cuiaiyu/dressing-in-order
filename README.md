@@ -129,11 +129,13 @@ sh scripts/run_eval.sh
 ## Cite us!
 If you find this work is helpful, please consider to star :star2: this repo and cite us as
 ```
-@article{cui2021dressing,
-  title={Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing},
-  author={Cui, Aiyu and McKee, Daniel and Lazebnik, Svetlana},
-  journal={arXiv preprint arXiv:2104.07021},
-  year={2021}
+@InProceedings{Cui_2021_ICCV,
+    author    = {Cui, Aiyu and McKee, Daniel and Lazebnik, Svetlana},
+    title     = {Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-On and Outfit Editing},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2021},
+    pages     = {14638-14647}
 }
 ```
 ## Acknowledgements
