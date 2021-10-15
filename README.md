@@ -1,10 +1,11 @@
 # Dressing in Order (DiOr)
-[:womans_clothes: __Paper__](https://cuiaiyu.github.io/dressing-in-order/Cui_Dressing_in_Order.pdf) |
+[👕 __ICCV'21 Paper__](https://openaccess.thecvf.com/content/ICCV2021/html/Cui_Dressing_in_Order_Recurrent_Person_Image_Generation_for_Pose_Transfer_ICCV_2021_paper.html) |
 [:jeans: __Project Page__](https://cuiaiyu.github.io/dressing-in-order) |
+[:womans_clothes: __arXiv__](https://cuiaiyu.github.io/dressing-in-order/Cui_Dressing_in_Order.pdf) |
 [🎽 __Video Talk__](https://youtu.be/z0UgPSTEdVo) |
 [:dress: __Running This Code__](#get-started)
 
-The official implementation of __"Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing,"__ 
+The official implementation of __"Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing."__ 
 by
 [Aiyu Cui](https://cuiaiyu.github.io),
 [Daniel McKee](http://danielbmckee.com) and
@@ -50,7 +51,7 @@ We run experiments on __Deepfashion Dataset__. To set up the dataset:
 [GFLA source](https://drive.google.com/drive/folders/1BX3Bxh8KG01yKWViRY0WTyDWbJHju-SL)
 or [PATN source](https://drive.google.com/drive/folders/1eIwVFMRu9sU5UN-dbyTSEDEZJnWyYfxj),
 and put the ```.csv``` and ```.lst``` files at ```$DATA_ROOT```.
-    - If one wants to extract the keypoints from scratch, please run [OpenPose](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation) as the pose estimator. Please follow the instruction from [PATN](https://github.com/tengteng95/Pose-Transfer) for how to generate the keypoints in desired format.
+    - If one wants to extract the keypoints from scratch, please run [OpenPose](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation) as the pose estimator with COCO label (so no mid-hip joint). Please follow the instruction from [PATN](https://github.com/tengteng95/Pose-Transfer) for how to generate the keypoints in desired format.
 3. Run ```python tools/generate_fashion_dataset.py``` to split the data. (Please specify the $DATA_ROOT accordingly.)
 4. Get human parsing. You can obtain the parsing by either:
     - Run off-the-shelf human parser [SCHP](https://github.com/PeikeLi/Self-Correction-Human-Parsing) (with LIP labels) on ```$DATA_ROOT/train``` and ```$DATA_ROOT/test```. Name the output parses folder as ```$DATA_ROOT/trainM_lip``` and ```$DATA_ROOT/testM_lip``` respectively.
