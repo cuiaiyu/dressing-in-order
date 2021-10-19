@@ -15,7 +15,7 @@ by
 :bell: __Updates__
 - [2021/08] Please check our [latest version of paper](https://cuiaiyu.github.io/dressing-in-order/Cui_Dressing_in_Order.pdf) for the updated and clarified implementation details.      
   - *__Clarification:__ the facial component was not added to the skin encoding as stated in the [our CVPR 2021 workshop paper](https://openaccess.thecvf.com/content/CVPR2021W/CVFAD/papers/Cui_Dressing_in_Order_Recurrent_Person_Image_Generation_for_Pose_Transfer_CVPRW_2021_paper.pdf) due to a minor typo. However, this doesn't affect our conclusions nor the comparison with the prior work, because it is an independent skin encoding design.*
-- [2021/07] To appear in [__ICCV 2021__](http://iccv2021.thecvf.com).
+- [2021/07] To appear in [__ICCV 2021__](https://openaccess.thecvf.com/content/ICCV2021/html/Cui_Dressing_in_Order_Recurrent_Person_Image_Generation_for_Pose_Transfer_ICCV_2021_paper.html).
 - [2021/06] The best paper at [Computer Vision for Fashion, Art and Design](https://sites.google.com/zalando.de/cvfad2021/home) Workshop CVPR 2021.
 
 __Supported Try-on Applications__
@@ -52,7 +52,7 @@ We run experiments on __Deepfashion Dataset__. To set up the dataset:
 or [PATN source](https://drive.google.com/drive/folders/1eIwVFMRu9sU5UN-dbyTSEDEZJnWyYfxj),
 and put the ```.csv``` and ```.lst``` files at ```$DATA_ROOT```.
     - If one wants to extract the keypoints from scratch, please run [OpenPose](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation) as the pose estimator with COCO label (so no mid-hip joint). Please follow the instruction from [PATN](https://github.com/tengteng95/Pose-Transfer) for how to generate the keypoints in desired format.
-3. Run ```python tools/generate_fashion_dataset.py``` to split the data. (Please specify the $DATA_ROOT accordingly.)
+3. Run ```python tools/generate_fashion_dataset.py --dataroot $DATAROOT``` to split the data. 
 4. Get human parsing. You can obtain the parsing by either:
     - Run off-the-shelf human parser [SCHP](https://github.com/PeikeLi/Self-Correction-Human-Parsing) (with LIP labels) on ```$DATA_ROOT/train``` and ```$DATA_ROOT/test```. Name the output parses folder as ```$DATA_ROOT/trainM_lip``` and ```$DATA_ROOT/testM_lip``` respectively.
     - Download the preprocessed parsing from [here](https://drive.google.com/drive/folders/11wWszW1kskAyMIGJHBBZzHNKN3os6pu_?usp=sharing) and put it under ```$DATA_ROOT```.

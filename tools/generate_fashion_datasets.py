@@ -1,69 +1,77 @@
 """
 This file is originally from GFLA at https://github.com/RenYurui/Global-Flow-Local-Attention/blob/master/script/generate_fashion_datasets.py
+This is a modified version updated by Aiyu Cui.
+
+Run as
+python generate_fashion_datasets.py --dataroot $DATAROOT
 """
 import os
 import shutil
 from PIL import Image
 
-IMG_EXTENSIONS = [
-'.jpg', '.JPG', '.jpeg', '.JPEG',
-'.png', '.PNG', '.ppm', '.PPM', '.bmp', '.BMP',
-]
+IMG_EXTENSIONS = ['.jpg', '.JPG', '.jpeg', '.JPEG','.png', '.PNG', '.ppm', '.PPM', '.bmp', '.BMP',]
 
 def is_image_file(filename):
-	return any(filename.endswith(extension) for extension in IMG_EXTENSIONS)
+    return any(filename.endswith(extension) for extension in IMG_EXTENSIONS)
 
-def make_dataset(dir):
-	images = []
-	assert os.path.isdir(dir), '%s is not a valid directory' % dir
-	# new_root = './fashion'
-	# if not os.path.exists(new_root):
-	# 	os.mkdir(new_root)
+def load_anno(anno_path):
+    train_images = []
+    train_f = open(anno_path, 'r')
+    for lines in train_f:
+        lines = lines.strip()
+        if lines.endswith('.jpg'):
+            train_images.append(lines[:-4])
+    return train_images
 
-	train_root = os.path.join(dir, 'train')
-	if not os.path.exists(train_root):
-		os.mkdir(train_root)
+def convert_file_name(catagory, fn):
+    pass
+    
 
-	test_root = os.path.join(dir, 'test')
-	if not os.path.exists(test_root):
-		os.mkdir(test_root)
+def make_dataset(dataroot):
+    assert os.path.isdir(dataroot), '%s is not a valid directory' % dataroot
+    
+    # load data split from annotaton file
+    train_root = os.path.join(dataroot, 'train')
+    if not os.path.exists(train_root):
+        os.mkdir(train_root)
+        
+    test_root = os.path.join(dataroot, 'test')
+    if not os.path.exists(test_root):
+        os.mkdir(test_root)
 
-	train_images = []
-	train_f = open(os.path.join(dir, 'train.lst'), 'r')
-	for lines in train_f:
-		lines = lines.strip()
-		if lines.endswith('.jpg'):
-			train_images.append(lines)
+    train_images = load_anno(os.path.join(dataroot, 'train.lst'))
+    test_images =  load_anno(os.path.join(dataroot, 'test.lst'))
+    
+    # split data
+    img_root = os.path.join(dataroot, 'img_highres')
+    for root, _, fnames in sorted(os.walk(img_root)):
+        for fname in fnames:
+            if not is_image_file(fname):
+                continue
+            path = os.path.join(root, fname)
+            print("Load Image", path)
+            path_names = path.split('/')
+            path_names = path_names[len(img_root.split("/")):]
+            path_names = ['fashion'] + path_names
+            path_names[3] = path_names[3].replace('_', '')
+            path_names[4] = path_names[4].split('_')[0] + "_" + "".join(path_names[4].split('_')[1:])
+            path_names = "".join(path_names)
 
-	test_images = []
-	test_f = open(os.path.join(dir, 'test.lst'), 'r')
-	for lines in test_f:
-		lines = lines.strip()
-		if lines.endswith('.jpg'):
-			test_images.append(lines)
+            if path_names[:-4] in train_images:
+                shutil.copy(path, os.path.join(train_root, path_names))
+                print("Save to", os.path.join(train_root, path_names))
 
-	# print(train_images, test_images)
+            elif path_names[:-4] in test_images:
+                shutil.copy(path, os.path.join(test_root, path_names))
+                print("Save to", os.path.join(train_root, path_names))
+                #pass
+                
+if __name__ == '__main__':
+    import argparse
 
-	for root, _, fnames in sorted(os.walk(os.path.join(dir, 'img_highres'))):
-		for fname in fnames:
-			if is_image_file(fname):
-				path = os.path.join(root, fname)
-				path_names = path.split('/') 
-				print(path_names)
+    parser = argparse.ArgumentParser(description='Process some integers.')
+    parser.add_argument('--dataroot', type=str, default="data", help='data root')
 
-				path_names = path_names[2:]
-				del path_names[1]
-				path_names[3] = path_names[3].replace('_', '')
-				path_names[4] = path_names[4].split('_')[0] + "_" + "".join(path_names[4].split('_')[1:])
-				path_names = "".join(path_names)
-				# img = Image.open(path)
-				if path_names in train_images:
-					shutil.copy(path, os.path.join(train_root, path_names))
-					print(os.path.join(train_root, path_names))
-# 					pass
-				elif path_names in test_images:
-					shutil.copy(path, os.path.join(test_root, path_names))
-					print(os.path.join(train_root, path_names))
-# 					pass
-
-make_dataset('./dataset/fashion/')
+    args = parser.parse_args()
+    
+    make_dataset(args.dataroot)
