@@ -51,7 +51,7 @@ We run experiments on __Deepfashion Dataset__. To set up the dataset:
 [GFLA source](https://drive.google.com/drive/folders/1BX3Bxh8KG01yKWViRY0WTyDWbJHju-SL)
 or [PATN source](https://drive.google.com/drive/folders/1eIwVFMRu9sU5UN-dbyTSEDEZJnWyYfxj),
 and put the ```.csv``` and ```.lst``` files at ```$DATA_ROOT```.
-    - If one wants to extract the keypoints from scratch, please run [OpenPose](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation) as the pose estimator with COCO label (so no mid-hip joint). Please follow the instruction from [PATN](https://github.com/tengteng95/Pose-Transfer) for how to generate the keypoints in desired format.
+    - If one wants to extract the keypoints from scratch/for your dataset, please run [OpenPose](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation) as the pose estimator or follow the instruction from [PATN](https://github.com/tengteng95/Pose-Transfer) to generate the keypoints in desired format. (Check Issue [#21](https://github.com/cuiaiyu/dressing-in-order/issues/21) for more details.)
 3. Run ```python tools/generate_fashion_dataset.py --dataroot $DATAROOT``` to split the data. 
 4. Get human parsing. You can obtain the parsing by either:
     - Run off-the-shelf human parser [SCHP](https://github.com/PeikeLi/Self-Correction-Human-Parsing) (with LIP labels) on ```$DATA_ROOT/train``` and ```$DATA_ROOT/test```. Name the output parses folder as ```$DATA_ROOT/trainM_lip``` and ```$DATA_ROOT/testM_lip``` respectively.
@@ -82,6 +82,7 @@ After the processing, you should have the dataset folder formatted like:
 |   - standard_test_anns.txt
 ```
 
+
 ---
 
 ## Run Demo
@@ -98,7 +99,7 @@ After downloading the pretrained model and setting the data, you can try out our
 
 __Warmup the Global Flow Field Estimator__
 
-Note, if you don't want to warmup the Global Flow Field Estimator, you can extract its weights from GFLA by downloading the pretrained weights GFLA from [here](https://github.com/RenYurui/Global-Flow-Local-Attention).
+Note, if you don't want to warmup the Global Flow Field Estimator, you can extract its weights from GFLA by downloading the pretrained weights GFLA from [here](https://github.com/RenYurui/Global-Flow-Local-Attention). (Check Issue [#23](https://github.com/cuiaiyu/dressing-in-order/issues/23) for how to extract weights from GFLA.)
 
 Otherwise, run
 
@@ -113,11 +114,17 @@ After warming up the flownet, train the pipeline by
 sh scripts/run_train.sh
 ```
 Run ```tensorboard --logdir checkpoints/$EXP_NAME/train``` to check tensorboard.
-*Resetting discriminators may help training when it stucks at local minimals.*
+
+*Note: Resetting discriminators may help training when it stucks at local minimals.*
+
 
 ## Evaluations
 
-To download our generated images (256x176 reported in paper): [here](https://drive.google.com/drive/folders/1GOQVMhBKvANKutLDbzPbE-Zrb6ai9Eo8?usp=sharing).
+__Download Generated Images__ 
+
+Here are our generated images which are used for the evaluation reported in the paper. (Deepfashion Dataset) 
+- [\[256x176\]](https://drive.google.com/drive/folders/1GOQVMhBKvANKutLDbzPbE-Zrb6ai9Eo8?usp=sharing)
+- [\[256x256\]](https://drive.google.com/drive/folders/1GOQVMhBKvANKutLDbzPbE-Zrb6ai9Eo8?usp=sharing)
 
 __SSIM, FID and LPIPS__
 
@@ -128,7 +135,7 @@ sh scripts/run_eval.sh
 
 ---
 ## Cite us!
-If you find this work is helpful, please consider to star :star2: this repo and cite us as
+If you find this work is helpful, please consider starring :star2: this repo and cite us as
 ```
 @InProceedings{Cui_2021_ICCV,
     author    = {Cui, Aiyu and McKee, Daniel and Lazebnik, Svetlana},
