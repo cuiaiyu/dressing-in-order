@@ -1,4 +1,4 @@
-block-extractor-cuda==0.0.0
+numblock-extractor-cuda==0.0.0
 cachetools==4.2.0
 certifi==2020.12.5
 chardet==4.0.0
@@ -19,7 +19,7 @@ local-attn-reshape-cuda==0.0.0
 lpips==0.1.3
 Markdown==3.3.3
 matplotlib==3.3.3
-numpy==1.19.5
+numpy>=1.21
 oauthlib==3.1.0
 olefile==0.46
 opencv-python==4.5.1.48
