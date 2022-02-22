@@ -5,6 +5,8 @@
 [🎽 __Video Talk__](https://youtu.be/z0UgPSTEdVo) |
 [:dress: __Running This Code__](#get-started)
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dressing-in-order-recurrent-person-image/pose-transfer-on-deep-fashion)](https://paperswithcode.com/sota/pose-transfer-on-deep-fashion?p=dressing-in-order-recurrent-person-image)
+
 The official implementation of __"Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing."__ 
 by
 [Aiyu Cui](https://cuiaiyu.github.io),
