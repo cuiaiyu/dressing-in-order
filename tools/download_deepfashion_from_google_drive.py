@@ -24,9 +24,9 @@ def download_from_gdrive(dst_root, fn, gdrive_path, iszip=True):
 
 ## download data
 # https://drive.google.com/drive/folders/11wWszW1kskAyMIGJHBBZzHNKN3os6pu_
-download_from_gdrive(args.dataroot, "testM_lip", "1toeQwAe57LNPTy9EWGG0u1XfTI7qv6b1")
-download_from_gdrive(args.dataroot, "trainM_lip", "1OAsHXiyQRGCCZltWtBUj_y4xV8aBKLk5")
-download_from_gdrive(args.dataroot,"standard_test_anns.txt","19nJSHrQuoJZ-6cSl3WEYlhQv6ZsAYG-X",iszip=False)
+#download_from_gdrive(args.dataroot, "testM_lip", "1toeQwAe57LNPTy9EWGG0u1XfTI7qv6b1")
+#download_from_gdrive(args.dataroot, "trainM_lip", "1OAsHXiyQRGCCZltWtBUj_y4xV8aBKLk5")
+#download_from_gdrive(args.dataroot,"standard_test_anns.txt","19nJSHrQuoJZ-6cSl3WEYlhQv6ZsAYG-X",iszip=False)
 
 # DeepFashion-MultiModal https://github.com/yumingj/DeepFashion-MultiModal
 download_from_gdrive(args.dataroot, "images", "1U2PljA7NE57jcSSzPs21ZurdIPXdYZtN")

@@ -26,11 +26,11 @@ by
 
 __Supported Try-on Applications__
 
-![](images/short_try_on_editing.png)
+![](cover_images/short_try_on_editing.png)
 
 __Supported Editing Applications__
 
-![](images/short_editing.png)
+![](cover_images/short_editing.png)
 
 __More results__
 
