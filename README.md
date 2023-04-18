@@ -1,4 +1,4 @@
-# Dressing in Order (DiOr)
+# Dressing in Order
 [👕 __ICCV'21 Paper__](https://openaccess.thecvf.com/content/ICCV2021/html/Cui_Dressing_in_Order_Recurrent_Person_Image_Generation_for_Pose_Transfer_ICCV_2021_paper.html) |
 [:jeans: __Project Page__](https://cuiaiyu.github.io/dressing-in-order) |
 [:womans_clothes: __arXiv__](https://cuiaiyu.github.io/dressing-in-order/Cui_Dressing_in_Order.pdf) |
@@ -18,7 +18,7 @@ by
  
 
 :bell: __Updates__
-- [2023/04] Offical Colab Demo is now available at [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1WfeKTPtt3qtlcTlrX47J03mxUzbVvyrL?usp=sharing). __All data downloading and installation are included.__
+- [2023/04] Offical Colab Demo is now available at [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1WfeKTPtt3qtlcTlrX47J03mxUzbVvyrL?usp=sharing). __Data downloading and environment installation are included.__
 - [2021/08] Please check our [latest version of paper](https://cuiaiyu.github.io/dressing-in-order/Cui_Dressing_in_Order.pdf) for the updated and clarified implementation details.      
   - *__Clarification:__ the facial component was not added to the skin encoding as stated in the [our CVPR 2021 workshop paper](https://openaccess.thecvf.com/content/CVPR2021W/CVFAD/papers/Cui_Dressing_in_Order_Recurrent_Person_Image_Generation_for_Pose_Transfer_CVPRW_2021_paper.pdf) due to a minor typo. However, this doesn't affect our conclusions nor the comparison with the prior work, because it is an independent skin encoding design.*
 - [2021/07] To appear in [__ICCV 2021__](https://openaccess.thecvf.com/content/ICCV2021/html/Cui_Dressing_in_Order_Recurrent_Person_Image_Generation_for_Pose_Transfer_ICCV_2021_paper.html).
@@ -26,75 +26,56 @@ by
 
 __Supported Try-on Applications__
 
-![](Images/short_try_on_editing.png)
+![](images/short_try_on_editing.png)
 
 __Supported Editing Applications__
 
-![](Images/short_editing.png)
+![](images/short_editing.png)
 
 __More results__
 
 Play with [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1WfeKTPtt3qtlcTlrX47J03mxUzbVvyrL?usp=sharing)!
 
 ----
+## Demo
+A directly runable demo can be found in our Colab!
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1WfeKTPtt3qtlcTlrX47J03mxUzbVvyrL?usp=sharing)!
+
+----
 
 ## Get Started for Bash Scripts
-Please follow the [installation instruction in GFLA](https://github.com/RenYurui/Global-Flow-Local-Attention) to install the environment. 
+### DeepFashion Dataset Setup
+__Deepfashion Dataset__ can be found from [DeepFashion MultiModal Source](https://github.com/yumingj/DeepFashion-MultiModal). 
 
-Then run
+To set up the dataset in your specified data folder ```$DATA_ROOT```, run:
 ```
-pip install -r requirements.txt
+pip install --upgrade gdown
+python tools/download_deepfashion_from_google_drive.py --dataroot $DATA_ROOT
 ```
+This script will automatically download all the necessary data from Google Drives (
+    [images source](https://github.com/yumingj/DeepFashion-MultiModal), [parse source](https://drive.google.com/file/d/1OAsHXiyQRGCCZltWtBUj_y4xV8aBKLk5/view?usp=share_link), [annotation source](https://drive.google.com/drive/folders/1BX3Bxh8KG01yKWViRY0WTyDWbJHju-SL)) to your the specified ```$DATA_ROOT``` in desired format.
 
-__If one wants to run inference only:__
-You can use later version of PyTorch and you don't need to worry about how to install GFLA's cuda functions. Please specify ```--frozen_flownet```.
-
-
-## Dataset
-We run experiments on __Deepfashion Dataset__. To set up the dataset:
-1. Download and unzip ```img_highres.zip``` from the [deepfashion inshop dataset](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion/InShopRetrieval.html) at ```$DATA_ROOT```
-2. Download the train/val split and pre-processed keypoints annotations from 
-[GFLA source](https://drive.google.com/drive/folders/1BX3Bxh8KG01yKWViRY0WTyDWbJHju-SL)
-or [PATN source](https://drive.google.com/drive/folders/1eIwVFMRu9sU5UN-dbyTSEDEZJnWyYfxj),
-and put the ```.csv``` and ```.lst``` files at ```$DATA_ROOT```.
-    - If one wants to extract the keypoints from scratch/for your dataset, please run [OpenPose](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation) as the pose estimator or follow the instruction from [PATN](https://github.com/tengteng95/Pose-Transfer) to generate the keypoints in desired format. (Check Issue [#21](https://github.com/cuiaiyu/dressing-in-order/issues/21) for more details.)
-3. Run ```python tools/generate_fashion_dataset.py --dataroot $DATAROOT``` to split the data. 
-4. Get human parsing. You can obtain the parsing by either:
-    - Run off-the-shelf human parser [SCHP](https://github.com/PeikeLi/Self-Correction-Human-Parsing) (with LIP labels) on ```$DATA_ROOT/train``` and ```$DATA_ROOT/test```. Name the output parses folder as ```$DATA_ROOT/trainM_lip``` and ```$DATA_ROOT/testM_lip``` respectively.
-    - Download the preprocessed parsing from [here](https://drive.google.com/drive/folders/11wWszW1kskAyMIGJHBBZzHNKN3os6pu_?usp=sharing) and put it under ```$DATA_ROOT```.
-5. Download [standard_test_anns.txt](https://drive.google.com/drive/folders/11wWszW1kskAyMIGJHBBZzHNKN3os6pu_?usp=sharing) for fast visualization.
-
-After the processing, you should have the dataset folder formatted like:
+### Environment Setup
+Please install the environment based on your need.
+ 
+#### 1. __Environment for Inference or Test (for metrics) Only__
+Required packages are
 ```
-+ $DATA_ROOT
-|   + train (all training images)
-|   |   - xxx.jpg
-|   |     ...
-|   + trainM_lip (human parse of all training images)
-|   |   - xxx.png
-|   |     ...
-|   + test (all test images)
-|   |   - xxx.jpg
-|   |     ...
-|   + testM_lip (human parse of all test images)
-|   |   - xxx.png
-|   |     ...
-|   - fashion-pairs-train.csv (paired poses for training)
-|   - fashion-pairs-test.csv (paired poses for test)
-|   - fashion-annotation-train.csv (keypoints for training images)
-|   - fashion-annotation-test.csv  (keypoints for test images)
-|   - train.lst
-|   - test.lst
-|   - standard_test_anns.txt
+torch
+torchvision
+tensorboardX
+scikit-image==0.16.2
 ```
 
+#### 2. __Environment for Training__
+Note the training process requires CUDA functions provided by [GFLA](https://github.com/RenYurui/Global-Flow-Local-Attention), which can only compile with __torch=1.0.0__.
 
----
+To start training, please follow the [installation instruction in GFLA](https://github.com/RenYurui/Global-Flow-Local-Attention) to install the environment. 
 
-## Run Demo
-Please download the pretrained weights from [here](https://drive.google.com/drive/folders/1-7DxUvcrC3cvQV67Z2QhRdi-9PMDC8w9?usp=sharing) and unzip at ```checkpoints/```. 
+Then run ```pip install -r requirements.txt```.
 
-After downloading the pretrained model and setting the data, you can try out our applications in notebook [demo.ipynb](demo.ipynb).
+### Download pretrained weights
+The pretrained weights can be found [here](https://drive.google.com/drive/folders/1-7DxUvcrC3cvQV67Z2QhRdi-9PMDC8w9?usp=sharing). Please unzip them under ```checkpoints/``` directory.
 
 *(The checkpoints above are reproduced, so there could be slightly difference in quantitative evaluation from the reported results. To get the original results, please check our released generated images [here](https://drive.google.com/drive/folders/1GOQVMhBKvANKutLDbzPbE-Zrb6ai9Eo8?usp=sharing).)*
 
@@ -138,6 +119,7 @@ To run evaluation (SSIM, FID and LPIPS) on pose transfer task:
 ```
 sh scripts/run_eval.sh
 ```
+please always specific ```--frozen_flownet``` for inference.
 
 ---
 ## Cite us!
