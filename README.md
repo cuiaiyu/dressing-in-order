@@ -66,6 +66,7 @@ torchvision
 tensorboardX
 scikit-image==0.16.2
 ```
+The version of torch/torchvison is not restricted for inference.
 
 #### 2. __Environment for Training__
 Note the training process requires CUDA functions provided by [GFLA](https://github.com/RenYurui/Global-Flow-Local-Attention), which can only compile with __torch=1.0.0__.
@@ -104,7 +105,7 @@ Run ```tensorboard --logdir checkpoints/$EXP_NAME/train``` to check tensorboard.
 
 *Note: Resetting discriminators may help training when it stucks at local minimals.*
 
-
+----
 ## Evaluations
 
 __Download Generated Images__ 
@@ -123,7 +124,7 @@ please always specific ```--frozen_flownet``` for inference.
 
 ---
 ## Cite us!
-If you find this work is helpful, please consider starring :star2: this repo and cite us as
+If you find this work is helpful, please consider starring :star2: this repo and citing us as
 ```
 @InProceedings{Cui_2021_ICCV,
     author    = {Cui, Aiyu and McKee, Daniel and Lazebnik, Svetlana},
