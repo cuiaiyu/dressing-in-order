@@ -40,12 +40,12 @@ download_from_gdrive(args.dataroot,"test.lst","1yi7xg1nJ9Ts5RbA_WsKq5lDUCwrXwGyn
 download_from_gdrive(args.dataroot,"train.lst","1sbIw7M-CpLlT9L1kQfkdami-IPoHHWpC",iszip=False)
 
 # filter images (exclude training data and rename the files)
-if not os.path.exists("data/test"):
-  os.mkdir("data/test")
-if not os.path.exists("data/train"):
-  os.mkdir("data/train")
-target_fns = [fn[:-4] for fn in os.listdir("data/testM_lip")]
-for fn in tqdm(os.listdir("data/images")):
+if not os.path.exists(args.dataroot + "/test"):
+  os.mkdir(args.dataroot + "/test")
+if not os.path.exists(args.dataroot + "/train"):
+  os.mkdir(args.dataroot + "/train")
+target_fns = [fn[:-4] for fn in os.listdir(args.dataroot + "/testM_lip")]
+for fn in tqdm(os.listdir(args.dataroot + "/images")):
   if not fn.endswith(".jpg"):
     continue
   elements = fn.split("-")
@@ -55,8 +55,8 @@ for fn in tqdm(os.listdir("data/images")):
   new_fn = "fashion"+"".join(elements)
 
   if new_fn[:-4] in target_fns:
-    os.system("mv {} {}".format("data/images/"+fn, "data/test/"+new_fn))
+    os.system("mv {} {}".format(args.dataroot + "/images/"+fn, "args.dataroot + "/test/"+new_fn))
   else:
-    os.system("mv {} {}".format("data/images/"+fn, "data/train/"+new_fn))
-  os.system("rm -rf data/images")
+    os.system("mv {} {}".format(args.dataroot + "/images/"+fn, "args.dataroot + "/train/"+new_fn))
+  os.system("rm -rf {}/images".format(args.dataroot))
 
