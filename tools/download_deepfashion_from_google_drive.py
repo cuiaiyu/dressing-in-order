@@ -55,8 +55,8 @@ for fn in tqdm(os.listdir(args.dataroot + "/images")):
   new_fn = "fashion"+"".join(elements)
 
   if new_fn[:-4] in target_fns:
-    os.system("mv {} {}".format(args.dataroot + "/images/"+fn, "args.dataroot + "/test/"+new_fn))
+    os.system("mv {} {}".format(args.dataroot + "/images/"+fn, args.dataroot + "/test/"+new_fn))
   else:
-    os.system("mv {} {}".format(args.dataroot + "/images/"+fn, "args.dataroot + "/train/"+new_fn))
+    os.system("mv {} {}".format(args.dataroot + "/images/"+fn, args.dataroot + "/train/"+new_fn))
   os.system("rm -rf {}/images".format(args.dataroot))
 
