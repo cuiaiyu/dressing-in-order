@@ -7,7 +7,7 @@ numpy>=1.21
 opencv-python
 pandas
 Pillow
-scikit-image==0.16.2
+scikit-image==0.18.0
 tensorboard
 tensorboardX
 tifffile==2020.9.3
