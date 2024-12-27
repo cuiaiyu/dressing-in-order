@@ -64,7 +64,7 @@ Required packages are
 torch
 torchvision
 tensorboardX
-scikit-image==0.16.2
+scikit-image==0.18.0
 ```
 The version of torch/torchvison is not restricted for inference.
 
