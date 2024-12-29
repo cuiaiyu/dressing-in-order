@@ -5,7 +5,6 @@
 [🎽 __Video Talk__](https://youtu.be/z0UgPSTEdVo) |
 [:dress: __Running This Code__](#get-started)
 
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dressing-in-order-recurrent-person-image/pose-transfer-on-deep-fashion)](https://paperswithcode.com/sota/pose-transfer-on-deep-fashion?p=dressing-in-order-recurrent-person-image)
 
 The official implementation of __"Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing."__ 
 by
@@ -14,10 +13,9 @@ by
 [Svetlana Lazebnik](https://slazebni.cs.illinois.edu).
  (ICCV 2021)
  
- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1WfeKTPtt3qtlcTlrX47J03mxUzbVvyrL?usp=sharing)
- 
 
 :bell: __Updates__
+- [2024/12] This four-year-old repository is no longer actively maintained. Please check [The Curated List of Awesome Virtual Try-on (VTON) Research](https://github.com/minar09/awesome-virtual-try-on) for SOTA virtual try-on work. 
 - [2023/04] Offical Colab Demo is now available at [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1WfeKTPtt3qtlcTlrX47J03mxUzbVvyrL?usp=sharing). __Data downloading and environment installation are included.__
 - [2021/08] Please check our [latest version of paper](https://cuiaiyu.github.io/dressing-in-order/Cui_Dressing_in_Order.pdf) for the updated and clarified implementation details.      
   - *__Clarification:__ the facial component was not added to the skin encoding as stated in the [our CVPR 2021 workshop paper](https://openaccess.thecvf.com/content/CVPR2021W/CVFAD/papers/Cui_Dressing_in_Order_Recurrent_Person_Image_Generation_for_Pose_Transfer_CVPRW_2021_paper.pdf) due to a minor typo. However, this doesn't affect our conclusions nor the comparison with the prior work, because it is an independent skin encoding design.*
