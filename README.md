@@ -2,8 +2,7 @@
 [👕 __ICCV'21 Paper__](https://openaccess.thecvf.com/content/ICCV2021/html/Cui_Dressing_in_Order_Recurrent_Person_Image_Generation_for_Pose_Transfer_ICCV_2021_paper.html) |
 [:jeans: __Project Page__](https://cuiaiyu.github.io/dressing-in-order) |
 [:womans_clothes: __arXiv__](https://cuiaiyu.github.io/dressing-in-order/Cui_Dressing_in_Order.pdf) |
-[🎽 __Video Talk__](https://youtu.be/z0UgPSTEdVo) |
-[:dress: __Running This Code__](#get-started)
+[🎽 __Video Talk__](https://youtu.be/z0UgPSTEdVo) 
 
 
 The official implementation of __"Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing."__ 
@@ -22,24 +21,11 @@ by
 - [2021/07] To appear in [__ICCV 2021__](https://openaccess.thecvf.com/content/ICCV2021/html/Cui_Dressing_in_Order_Recurrent_Person_Image_Generation_for_Pose_Transfer_ICCV_2021_paper.html).
 - [2021/06] The best paper at [Computer Vision for Fashion, Art and Design](https://sites.google.com/zalando.de/cvfad2021/home) Workshop CVPR 2021.
 
-__Supported Try-on Applications__
 
-![](cover_images/short_try_on_editing.png)
-
-__Supported Editing Applications__
-
-![](cover_images/short_editing.png)
-
-__More results__
-
-Play with [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1WfeKTPtt3qtlcTlrX47J03mxUzbVvyrL?usp=sharing)!
-
-----
 ## Demo
 A directly runable demo can be found in our Colab!
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1WfeKTPtt3qtlcTlrX47J03mxUzbVvyrL?usp=sharing)!
 
-----
 
 ## Get Started for Bash Scripts
 ### DeepFashion Dataset Setup
